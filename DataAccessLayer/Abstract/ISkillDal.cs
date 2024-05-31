@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ISkilDal:IGenericDal<Skill>
+    public interface ISkillDal:IGenericDal<Skill>
     {
     }
 }
