@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    internal interface ISocialMediDal:IGenericDal<SocialMedia>
+    public interface ISocialMediDal:IGenericDal<SocialMedia>
     { 
     }
 }
