@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class TestimoniaManager : ITestimonialService
+    public class TestimonialManager : IGenericService<Testimonial>
     {
         ITestimonialDal _testimonialDal;
+
+        public TestimonialManager(ITestimonialDal testimonialDal)
+        {
+            _testimonialDal = testimonialDal;
+        }
 
         public void TAdd(Testimonial t)
         {
