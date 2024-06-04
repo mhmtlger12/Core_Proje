@@ -45,7 +45,7 @@
                     <form asp-action="DeleteSkillConfirmed" asp-route-id="@item.SkilID" onsubmit="return confirmDelete();">
                     <td> <button type="submit" class="btn btn-danger">Sil</button></td>
                     </form>
-                    <td> <a href="" class="btn btn-info">Güncelle</a></td>
+                    <td> <a href="/Skill/EditSkill/@item.SkilID" class="btn btn-info">Güncelle</a></td>
 
                 </tr>
             }

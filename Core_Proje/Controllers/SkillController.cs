@@ -56,5 +56,21 @@ namespace Core_Proje.Controllers
             skillManager.TDelete(skill);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult EditSkill(int id)
+        {
+            ViewBag.v1 = "Düzenleme";
+            ViewBag.v2 = "Yetenekler";
+            ViewBag.v3 = "Yetenekler Düzenleme";
+            var values = skillManager.TGetByID(id);
+            return View(values);    
+        }
+        [HttpPost]
+        public ActionResult EditSkill(Skill skill)
+        {
+            skillManager.TUpdate(skill);
+            return RedirectToAction("Index");
+        }
+
     }
 }
