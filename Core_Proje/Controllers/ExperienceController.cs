@@ -12,6 +12,9 @@ namespace Core_Proje.Controllers
         ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
         public IActionResult Index()
         {
+            ViewBag.v1 = "Deneyimler Listesi";
+            ViewBag.v2 = "Deneyimler";
+            ViewBag.v3 = "Deneyimler Listesi";
             var values = experienceManager.TGetList();
             return View(values);
         }
