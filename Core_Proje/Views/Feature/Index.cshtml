@@ -1,29 +1,28 @@
 ﻿@model EntityLayer.Concrete.Feature
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_adminnewLayout.cshtml";
 }
-<div class="card-header border-0">
-    <h3 class="mb-0">Öne Çıkan Düzenleme Sayfası</h3>
+@using (Html.BeginForm("Index", "Feature", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.FeatureID)
+    <br />
+    <div class="form-group">
+        <label for="Header">Başlık</label>
+        @Html.TextBoxFor(x => x.Header, new { @class = "form-control form-control-sm", id = "Header" })
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="Name">Ad Soyad</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control form-control-sm", id = "Name" })
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="Title">Görev</label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control form-control-sm", id = "Title" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success btn-sm">Güncelle</button>
+}
 
-    @using (Html.BeginForm("Index", "Feature", FormMethod.Post))
-    {
-        @Html.HiddenFor(x => x.FeatureID)
-
-        <br />
-        <label>Başlık</label>
-        @Html.TextBoxFor(x => x.Header, new { @class = "form-control" })
-        <br />
-
-        <label>Ad Soyad</label>
-        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-        <br />
-
-        <label>Görev</label>
-        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
-        <br />
-
-        <button class="btn btn-outline-success">Güncelle</button>
-    }
-</div>
 
