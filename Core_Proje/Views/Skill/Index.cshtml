@@ -24,6 +24,17 @@
             <tbody>
                 @foreach (var item in Model)
                 {
+                    int value = int.Parse(item.Value); // Değeri tam sayı türüne dönüştürme
+                    string progressBarClass = "bg-success";
+                    if (value <= 20)
+                    {
+                        progressBarClass = "bg-danger";
+                    }
+                    else if (value <= 50)
+                    {
+                        progressBarClass = "bg-warning";
+                    }
+
                     <tr>
                         <td>@item.SkilID</td>
                         <td>@item.Title</td>
@@ -31,7 +42,7 @@
                             <div class="d-flex align-items-center">
                                 <span class="mr-2">@item.Value%</span>
                                 <div class="progress" style="width: 100px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%;" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar @progressBarClass" role="progressbar" style="width: @item.Value%;" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </td>
@@ -48,14 +59,29 @@
             </tbody>
         </table>
     </div>
-
 </div>
 <div class="card-footer">
-    <a href="/Skill/AddSkill/" class="btn btn-outline-primary btn-lg" >Yeni Yetenek Ekle</a>
+    <a href="/Skill/AddSkill/" class="btn btn-outline-primary btn-lg">Yeni Yetenek Ekle</a>
 </div>
-@* Silme işlemi için eklendi  *@
+
+@* Silme işlemi için eklendi *@
 <script>
     function confirmDelete() {
         return confirm("Bu yeteneği silmek istediğinizden emin misiniz?");
     }
 </script>
+
+<style>
+    .bg-danger {
+        background-color: red !important;
+    }
+
+    .bg-warning {
+        background-color: yellow !important;
+        color: black !important;
+    }
+
+    .bg-success {
+        background-color: green !important;
+    }
+</style>
